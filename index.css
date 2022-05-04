@@ -13,26 +13,29 @@ html {
 
 .c_tg_rss {
  position: relative;
- width: 1236px;
+ width: 1240px;
  max-width: 100%;
- min-height: 300px;
+ min-height: 435px;
+ overflow: hidden;
+ border: 1px solid gray;
 }
 
 .c_tg_rss button {
  cursor: pointer;
 }
 
-.c_tg_rss > .content {
- font-family: Helvetica, Arial, sans-serif;
+.c_tg_rss > .ctg_rss_content {
+ font-family: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+ position: absolute;
+ left: 0;
+ top: 0;
  display: flex;
  flex-direction: row;
  justify-content: flex-start;
  align-items: stretch;
 
  padding: 2px;
-
- border: 1px solid gray;
- overflow: scroll hidden;
+ transition: 0.5s ease;
 }
 
 .c_tg_rss > * {
@@ -62,6 +65,7 @@ html {
 
 .slide_block {
  width: 400px;
+ height: 430px;
  flex: 0 0 400px;
  border: 1px solid gray;
  border-radius: var(--rss-tg-border-radius-1);
