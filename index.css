@@ -1,0 +1,60 @@
+:root {
+ --rss-tg-border-main: 1px solid gray;
+ --rss-tg-border-radius-1: 7px;
+ --rss-tg-prim-color: #000;
+ --rss-tg-sec-color: rgb(95, 95, 95);
+}
+
+body, 
+html {
+ padding: 0;
+ margin: 20px;
+}
+
+.carousel_rss {
+ font-family: Helvetica, Arial, sans-serif;
+ overflow: hidden;
+ border: 1px solid gray;
+}
+
+.carousel_rss h3 {
+ font-size: 22px;
+ margin: 10px 0;
+ color: var(--rss-tg-prim-color);
+}
+
+.carousel_rss p {
+ font-size: 16px;
+ color: var(--rss-tg-sec-color);
+}
+
+.carousel_rss .datetime {
+ font-size: 15px;
+ color: rgb(112, 112, 112);
+}
+
+.slide_block {
+ width: 400px;
+ border: 1px solid gray;
+ border-radius: var(--rss-tg-border-radius-1);
+ overflow: hidden;
+}
+
+.slide_block .image {
+ width: 100%;
+ height: 300px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ overflow: hidden;
+ border-bottom: 1px solid gray;
+}
+
+.slide_block .image img {
+ height: 300px;
+ object-fit: contain;
+}
+
+.slide_block .content {
+ padding: 10px;
+}
