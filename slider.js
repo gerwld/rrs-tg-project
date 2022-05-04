@@ -1,6 +1,6 @@
 const container = document.getElementById("ctg_rss");
 const cards = document.getElementById("ctg_rss_content");
-const card = cards.querySelector(".slide_block").offsetWidth + 15;
+const contentWidth = cards.querySelector(".slide_block").offsetWidth + 15;
 
 const btnBack = document.getElementById("btn_back");
 const btnFront = document.getElementById("btn_front");
@@ -10,8 +10,8 @@ let offsetLeft = 0;
 btnFront.addEventListener("click", (e) => {
   const container_rect = container.getBoundingClientRect();
   const cards_rect = cards.getBoundingClientRect();
-  if (cards_rect.right > container_rect.right + card - 15) {
-    offsetLeft += card;
+  if (cards_rect.right > container_rect.right + contentWidth - 15) {
+    offsetLeft += contentWidth;
     cards.style.left = `${-offsetLeft}px`;
   } else {
     offsetLeft = 0;
@@ -20,11 +20,11 @@ btnFront.addEventListener("click", (e) => {
 });
 
 btnBack.addEventListener("click", (e) => {
-  if (offsetLeft - card >= 0) {
-    offsetLeft -= card;
+  if (offsetLeft - contentWidth >= 0) {
+    offsetLeft -= contentWidth;
     cards.style.left = `${-offsetLeft}px`;
   } else {
-    offsetLeft = cards.offsetWidth - container.offsetWidth;
+    offsetLeft = cards.offsetWidth - container.offsetWidth + 2;
     cards.style.left = `${-offsetLeft}px`;
   }
 });
