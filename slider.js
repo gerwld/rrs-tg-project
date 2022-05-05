@@ -42,12 +42,10 @@ window.addEventListener("onlaod", resizeBlock);
 window.addEventListener("resize", resizeBlock);
 
 btnBack.addEventListener("click", () => {
-  console.log(offsetLeft, elemWidth);
   if (offsetLeft - elemWidth >= 0) {
     offsetLeft -= elemWidth;
   } else offsetLeft = cards.offsetWidth - container.offsetWidth;
-
-  cards.style.left = `${-offsetLeft}px`;
+  cards.style.left = `-${offsetLeft}px`;
 });
 
 btnForw.addEventListener("click", () => {
@@ -57,7 +55,7 @@ btnForw.addEventListener("click", () => {
     offsetLeft += elemWidth;
   } else offsetLeft = 0;
 
-  cards.style.left = `${-offsetLeft}px`;
+  cards.style.left = `-${offsetLeft}px`;
 });
 
 // **** Swipe block logic **** //
@@ -86,7 +84,6 @@ swipeBlock.addEventListener("mousemove", (e) => {
   e.preventDefault();
 
   let newValue = e.offsetX - cursorXSpace;
-  console.log(newValue, (cards_rect.width - container_rect.width) * -1);
   if (newValue < JUMP_RANGE && newValue > (cards_rect.width - container_rect.width + JUMP_RANGE) * -1) {
     offsetLeft = newValue;
     cards.style.left = `${offsetLeft}px`;

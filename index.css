@@ -1,5 +1,5 @@
 :root {
- --rss-tg-border-main: 1px solid gray;
+ --rss-tg-border-main: 1px solid rgb(179, 179, 179);
  --rss-tg-border-radius-1: 7px;
  --rss-tg-prim-color: #000;
  --rss-tg-sec-color: rgb(95, 95, 95);
@@ -65,16 +65,12 @@ html {
 
 .swipe_block {
   position: absolute;
-  width: 99.2%;
+  width: 100%;
   height: 310px;
   left: 0;
   top: 0;
-  border: 1px solid red;
-  z-index: 10;
-}
-
-.navigation button {
-  z-index: 100;
+  border: 0px solid red;
+  z-index: 10!important;
 }
 
 .slide_block {
@@ -85,7 +81,7 @@ html {
 }
 
 .slide_block_content {
- border: 1px solid gray;
+ border: var(--rss-tg-border-main);
  border-radius: var(--rss-tg-border-radius-1);
  overflow: hidden;
  background-color: #fff;
@@ -103,10 +99,10 @@ html {
 }
 
 .slide_block .image img {
- width: 100%;
- height: 300px;
- object-fit: cover;
- -webkit-user-drag: none;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
@@ -131,6 +127,7 @@ html {
  border: 1px solid rgb(87, 87, 87);
  background-color: rgba(0, 0, 0, 0.514);
  transition: scale 0.3s ease;
+ z-index: 100!important;
 }
 
 .ctg_rss .navigation button:hover {
