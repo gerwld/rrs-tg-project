@@ -1,12 +1,15 @@
 const container = document.getElementById("ctg_rss");
 const cards = document.getElementById("ctg_rss_content");
 const btnBack = document.getElementById("btn_back");
-const btnForw = document.getElementById("btn_front");
+const btnForw = document.getElementById("btn_forw");
 const swipeBlock = document.getElementById("ctg_swipe_block");
 
 const THREE_BL_WIDTH = 800;
 const ONE_BL_WIDTH = 550;
 const JUMP_RANGE = 100;
+const IS_AUTOSCROLL = true;
+const AUTOSCROLL_TIMEOUT = 1600;
+
 
 let elemWidth;
 let offsetLeft = 0;
@@ -58,6 +61,26 @@ btnForw.addEventListener("click", () => {
   cards.style.left = `-${offsetLeft}px`;
 });
 
+if(IS_AUTOSCROLL) {
+  container.addEventListener("mouseover", () => {
+    clearInterval(autoScroll);
+  });
+  container.addEventListener("mouseleave", () => {
+    autoScroll = setInterval(autoScrollTm, AUTOSCROLL_TIMEOUT);
+  });
+
+  var autoScroll = setInterval(autoScrollTm, AUTOSCROLL_TIMEOUT);
+  function autoScrollTm() {
+    const container_rect = container.getBoundingClientRect();
+    const cards_rect = cards.getBoundingClientRect();
+    if(container_rect.right < cards_rect.right - 50) {
+      offsetLeft += elemWidth;
+    } else {
+      offsetLeft = 0;
+    }
+    cards.style.left = `-${offsetLeft}px`;
+  }
+}
 // **** Swipe block logic **** //
 
 let isPressedDown = false;

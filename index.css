@@ -121,6 +121,7 @@ html {
  padding: 0;
  margin: 5px;
 
+ font-size: 0;
  color: #fff;
  border-radius: 50%;
  overflow: hidden;
@@ -145,4 +146,24 @@ html {
 
 .ctg_rss .navigation button:nth-child(2) {
  right: 0;
+}
+
+.navigation button::after {
+  content: "234";
+  font-size: 0;
+  display: inline-block;
+  width: 0; 
+  height: 0; 
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent; 
+}
+
+#btn_back::after {
+  border-right: 10px solid rgb(226, 226, 226);
+  margin-right: 4px;
+}
+
+#btn_forw::after {
+  border-left: 10px solid rgb(226, 226, 226);
+  margin-left: 4px;
 }
