@@ -13,7 +13,7 @@ html {
 
 .ctg_rss {
  position: relative;
- width: 1240px;
+ width: 1230px;
  max-width: 100%;
  min-height: 435px;
  overflow: hidden;
@@ -35,7 +35,7 @@ html {
  justify-content: flex-start;
  align-items: stretch;
 
- padding: 2px;
+ padding: 2px 0;
  transition: 0.5s ease;
 }
 
@@ -60,18 +60,14 @@ html {
  user-select: none;
 }
 
-.ctg_rss .slide_block:not(:last-child) {
- margin-right: 15px;
-}
-
-.mg-r-800.slide_block:not(:last-child) {
- margin-right: 10px;
-}
-
 .slide_block {
- width: 400px;
- height: 430px;
- flex: 0 0 400px;
+  width: 400px;
+  height: 430px;
+  flex: 0 0 400px;
+  padding: 0 5px;
+}
+
+.slide_block_content {
  border: 1px solid gray;
  border-radius: var(--rss-tg-border-radius-1);
  overflow: hidden;
