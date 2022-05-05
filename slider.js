@@ -1,8 +1,3 @@
-const container = document.getElementById("ctg_rss");
-const cards = document.getElementById("ctg_rss_content");
-const btnBack = document.getElementById("btn_back");
-const btnForw = document.getElementById("btn_forw");
-const swipeBlock = document.getElementById("ctg_swipe_block");
 
 
 const THREE_BL_WIDTH = 800;
@@ -11,6 +6,12 @@ const JUMP_RANGE = 100;
 const IS_AUTOSCROLL = false;
 const AUTOSCROLL_TIMEOUT = 2600;
 
+
+const container = document.getElementById("ctg_rss");
+const cards = document.getElementById("ctg_rss_content");
+const btnBack = document.getElementById("btn_back");
+const btnForw = document.getElementById("btn_forw");
+const swipeBlock = document.getElementById("ctg_swipe_block");
 
 let elemWidth;
 let offsetLeft = 0;
@@ -119,3 +120,4 @@ function alignVisBlock() {
   offsetLeft = Math.round(offsetLeft / elemWidth) * elemWidth;
   cards.style.left = `${offsetLeft}px`;
 }
+
