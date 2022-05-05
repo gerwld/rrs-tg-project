@@ -18,6 +18,7 @@ html {
  min-height: 435px;
  overflow: hidden;
  border: 1px solid gray;
+ margin: 0 auto;
 }
 
 .ctg_rss button {
@@ -63,6 +64,10 @@ html {
  margin-right: 15px;
 }
 
+.mg-r-800.slide_block:not(:last-child) {
+ margin-right: 10px;
+}
+
 .slide_block {
  width: 400px;
  height: 430px;
@@ -84,8 +89,9 @@ html {
 }
 
 .slide_block .image img {
+ width: 100%;
  height: 300px;
- object-fit: contain;
+ object-fit: cover;
  -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
@@ -102,15 +108,13 @@ html {
  bottom: calc(50% - 25px);
  height: 50px;
  width: 50px;
-
  padding: 0;
  margin: 5px;
-
 
  color: #fff;
  border-radius: 50%;
  overflow: hidden;
- border: none;
+ border: 1px solid rgb(87, 87, 87);
  background-color: rgba(0, 0, 0, 0.514);
  transition: scale 0.3s ease;
 }
