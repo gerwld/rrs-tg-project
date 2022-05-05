@@ -4,11 +4,12 @@ const btnBack = document.getElementById("btn_back");
 const btnForw = document.getElementById("btn_forw");
 const swipeBlock = document.getElementById("ctg_swipe_block");
 
+
 const THREE_BL_WIDTH = 800;
 const ONE_BL_WIDTH = 550;
 const JUMP_RANGE = 100;
 const IS_AUTOSCROLL = false;
-const AUTOSCROLL_TIMEOUT = 1600;
+const AUTOSCROLL_TIMEOUT = 2600;
 
 
 let elemWidth;
@@ -73,7 +74,7 @@ if(IS_AUTOSCROLL) {
   function autoScrollTm() {
     const container_rect = container.getBoundingClientRect();
     const cards_rect = cards.getBoundingClientRect();
-    if(container_rect.right < cards_rect.right - 50) {
+    if(container_rect.right < cards_rect.right - 100) {
       offsetLeft += elemWidth;
     } else {
       offsetLeft = 0;

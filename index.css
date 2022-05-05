@@ -3,6 +3,7 @@
  --rss-tg-border-radius-1: 7px;
  --rss-tg-prim-color: #000;
  --rss-tg-sec-color: rgb(95, 95, 95);
+ --rss-tg-main-color: #425191;
 }
 
 body, 
@@ -148,17 +149,21 @@ html {
  transform: scale(1.1);
 }
 
+.ctg_rss button:focus {
+  outline: none!important;
+}
+
 .ctg_rss .navigation button:active {
  background-color: rgb(112, 112, 112);
  transform: scale(1.05);
 }
 
 .ctg_rss .navigation button:nth-child(1) {
- left: 0;
+ left: 2px;
 }
 
 .ctg_rss .navigation button:nth-child(2) {
- right: 0;
+ right: 0px;
 }
 
 .navigation button::after {
@@ -180,4 +185,55 @@ html {
 #btn_forw::after {
   border-left: 10px solid rgb(226, 226, 226);
   margin-left: 4px;
+}
+
+.load_sc {
+  display: none;
+ /* display: flex; */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(241, 241, 241);
+  z-index: 1000;
+  border: var(--rss-tg-border-main);
+  box-sizing: border-box;
+}
+
+
+.load_sc > div {
+	content: " ";
+	display: block;
+	width: 64px;
+	height: 64px;
+	margin: 8px;
+	border-radius: 50%;
+	border: 3px solid var(--rss-tg-main-color);
+	border-color: var(--rss-tg-main-color) transparent var(--rss-tg-main-color) transparent;
+	animation: lds-dual-ring 1.2s linear infinite;
+	-webkit-animation: lds-dual-ring 1.2s linear infinite;
+	animation-fill-mode: none;
+}
+
+@keyframes lds-dual-ring {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+@media only screen and (max-width: 500px) {
+  body,
+  html {
+    margin: 20px 0 0;
+  }
 }
