@@ -22,6 +22,7 @@ html {
  margin: 0 auto;
  padding-right: 4px;
  box-sizing: border-box;
+ user-select: none;
 }
 
 .ctg_rss button {
@@ -113,6 +114,7 @@ html {
 .slide_block .content h3 {
  max-height: 45px;
  overflow: hidden;
+ cursor: pointer;
 }
 
 .slide_block .content p {
@@ -125,6 +127,7 @@ html {
   min-height: 150px;
   max-height: 150px;
   box-sizing: border-box;
+  cursor: default;
 }
 
 .ctg_rss .navigation button {
@@ -188,8 +191,7 @@ html {
 }
 
 .load_sc {
-  display: none;
- /* display: flex; */
+  display: flex;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -203,8 +205,8 @@ html {
   z-index: 1000;
   border: var(--rss-tg-border-main);
   box-sizing: border-box;
+  transition: 1s ease;
 }
-
 
 .load_sc > div {
 	content: " ";
@@ -218,6 +220,15 @@ html {
 	animation: lds-dual-ring 1.2s linear infinite;
 	-webkit-animation: lds-dual-ring 1.2s linear infinite;
 	animation-fill-mode: none;
+}
+
+.loaded.load_sc {
+  opacity: 0;
+  z-index: -100;
+}
+
+.error.load_sc > div {
+  display: none;
 }
 
 @keyframes lds-dual-ring {
