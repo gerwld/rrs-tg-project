@@ -19,6 +19,9 @@ html {
  overflow: hidden;
  border: 1px solid gray;
  margin: 0 auto;
+ padding-right: 4px;
+ box-sizing: border-box;
+ user-select: none;
 }
 
 .ctg_rss button {
@@ -60,6 +63,20 @@ html {
  user-select: none;
 }
 
+.swipe_block {
+  position: absolute;
+  width: 99.2%;
+  height: 310px;
+  left: 0;
+  top: 0;
+  border: 1px solid red;
+  z-index: 10;
+}
+
+.navigation button {
+  z-index: 100;
+}
+
 .slide_block {
   width: 400px;
   height: 430px;
@@ -71,6 +88,7 @@ html {
  border: 1px solid gray;
  border-radius: var(--rss-tg-border-radius-1);
  overflow: hidden;
+ background-color: #fff;
 }
 
 .slide_block .image {
