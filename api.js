@@ -23,6 +23,7 @@ const getRssData = () => {
        createElemBuilder(img, data.title, pg, data.date);
        console.log(e);
       })
+      resizeBlock();
       loader.classList.add('loaded');
       
     })

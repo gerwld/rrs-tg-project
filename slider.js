@@ -1,4 +1,8 @@
-
+const container = document.getElementById("ctg_rss");
+const cards = document.getElementById("ctg_rss_content");
+const btnBack = document.getElementById("btn_back");
+const btnForw = document.getElementById("btn_forw");
+const swipeBlock = document.getElementById("ctg_swipe_block");
 
 const THREE_BL_WIDTH = 800;
 const ONE_BL_WIDTH = 550;
@@ -6,12 +10,6 @@ const JUMP_RANGE = 100;
 const IS_AUTOSCROLL = false;
 const AUTOSCROLL_TIMEOUT = 2600;
 
-
-const container = document.getElementById("ctg_rss");
-const cards = document.getElementById("ctg_rss_content");
-const btnBack = document.getElementById("btn_back");
-const btnForw = document.getElementById("btn_forw");
-const swipeBlock = document.getElementById("ctg_swipe_block");
 
 let elemWidth;
 let offsetLeft = 0;
@@ -37,14 +35,14 @@ function resizeBlock() {
     });
   }
 
-  elemWidth = cards.querySelector(".slide_block").offsetWidth;
+  elemWidth = cards.querySelector(".slide_block") ? cards.querySelector(".slide_block").offsetWidth : 400;
   offsetLeft = 0;
   cards.style.left = `${offsetLeft}px`;
 }
 
-resizeBlock();
 window.addEventListener("onlaod", resizeBlock);
 window.addEventListener("resize", resizeBlock);
+resizeBlock();
 
 btnBack.addEventListener("click", () => {
   if (offsetLeft - elemWidth >= 0) {
