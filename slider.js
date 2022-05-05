@@ -57,7 +57,7 @@ btnForw.addEventListener("click", () => {
   if (cards_rect.right - 50 > container_rect.right) {
     offsetLeft += elemWidth;
   } else offsetLeft = 0;
-
+  
   cards.style.left = `-${offsetLeft}px`;
 });
 
