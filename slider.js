@@ -7,12 +7,12 @@ const swipeBlock = document.getElementById("ctg_swipe_block");
 const THREE_BL_WIDTH = 800;
 const ONE_BL_WIDTH = 550;
 const JUMP_RANGE = 100;
-const IS_AUTOSCROLL = true;
+const IS_AUTOSCROLL = false;
 const AUTOSCROLL_TIMEOUT = 5000;
-
 
 let elemWidth;
 let offsetLeft = 0;
+let startx;
 let paddingSize = 10;
 
 const urlP = new URLSearchParams(window.location.search);
@@ -40,7 +40,7 @@ function resizeBlock() {
 
   elemWidth = cards.querySelector(".slide_block") ? cards.querySelector(".slide_block").offsetWidth : 400;
   offsetLeft = 0;
-  IS_TG_BAR_SHOW && container.classList.add('with_tg');
+  IS_TG_BAR_SHOW && container.classList.add("with_tg");
   cards.style.left = `${offsetLeft}px`;
 }
 
@@ -64,7 +64,7 @@ btnForw.addEventListener("click", () => {
   cards.style.left = `-${offsetLeft}px`;
 });
 
-if(IS_AUTOSCROLL) {
+if (IS_AUTOSCROLL) {
   container.addEventListener("mouseover", () => {
     clearInterval(autoScroll);
   });
@@ -76,7 +76,7 @@ if(IS_AUTOSCROLL) {
   function autoScrollTm() {
     const container_rect = container.getBoundingClientRect();
     const cards_rect = cards.getBoundingClientRect();
-    if(container_rect.right < cards_rect.right - 100) {
+    if (container_rect.right < cards_rect.right - 100) {
       offsetLeft += elemWidth;
     } else {
       offsetLeft = 0;
@@ -110,13 +110,12 @@ swipeBlock.addEventListener("mousemove", (e) => {
   if (!isPressedDown) return;
   e.preventDefault();
 
-  let newValue =  e.offsetX - cursorXSpace;
-  if (newValue < JUMP_RANGE && newValue > (cards_rect.width - container_rect.width + JUMP_RANGE) * -1 ) {
-    offsetLeft =  Math.abs(newValue);
-    if(newValue >= 0) {
-    cards.style.left = `${offsetLeft}px`;
+  let newValue = e.offsetX - cursorXSpace;
+  if (newValue < JUMP_RANGE && newValue > (cards_rect.width - container_rect.width + JUMP_RANGE) * -1) {
+    offsetLeft = Math.abs(newValue);
+    if (newValue >= 0) {
+      cards.style.left = `${offsetLeft}px`;
     } else cards.style.left = `-${offsetLeft}px`;
-
   }
   setTimeout(alignVisBlock, 200);
 });
@@ -126,3 +125,33 @@ function alignVisBlock() {
   cards.style.left = `-${offsetLeft}px`;
 }
 
+// Mobile scroll
+
+swipeBlock.addEventListener(
+  "touchstart",
+  (e) => {
+    isPressedDown = true;
+    startx = e.targetTouches[0].clientX - cards.offsetLeft;
+  },
+  { passive: true }
+);
+
+swipeBlock.addEventListener(
+  "touchmove",
+  (e) => {
+    if (!isPressedDown) return;
+    x = e.targetTouches[0].clientX;
+    let offset = x - startx;
+
+    if (offset >= 0) offsetLeft = 0;
+    else offsetLeft = Math.abs(x - startx);
+
+    cards.style.left = `${x - startx}px`;
+  },
+  { passive: true }
+);
+
+swipeBlock.addEventListener("touchend", () => {
+  isPressedDown = false;
+  setTimeout(alignVisBlock, 200);
+});
