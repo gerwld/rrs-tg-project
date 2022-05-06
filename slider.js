@@ -9,6 +9,7 @@ const ONE_BL_WIDTH = 550;
 const JUMP_RANGE = 100;
 const IS_AUTOSCROLL = false;
 const AUTOSCROLL_TIMEOUT = 2600;
+const IS_TG_BAR_SHOW = true;
 
 
 let elemWidth;
@@ -37,6 +38,7 @@ function resizeBlock() {
 
   elemWidth = cards.querySelector(".slide_block") ? cards.querySelector(".slide_block").offsetWidth : 400;
   offsetLeft = 0;
+  IS_TG_BAR_SHOW && container.classList.add('with_tg');
   cards.style.left = `${offsetLeft}px`;
 }
 

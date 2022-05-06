@@ -49,7 +49,7 @@ font-family: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
  align-items: stretch;
 
  padding: 2px 0;
- transition: 0.5s ease;
+ transition: left 0.5s ease;
 }
 
 .with_tg.ctg_rss > .ctg_rss_content {
@@ -282,12 +282,16 @@ height: 400px;
   display: none;
 }
 
+.with_tg .tg_cregentials {
+ display: flex;
+}
+
 .tg_cregentials {
   position: absolute;
   top: 0;
   left: 3px;
   right: 3px;
-  display: flex;
+  display: none;
   align-items: center;
   width: calc(100% - 6px);
   height: 60px;

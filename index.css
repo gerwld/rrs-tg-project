@@ -11,7 +11,7 @@ body,
 html {
  padding: 0;
  margin: 20px;
- /* background-color: var(--rss-tg-main-bg); */
+ background-color: var(--rss-tg-main-bg);
 }
 
 @media only screen and (max-width: 500px) {

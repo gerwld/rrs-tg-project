@@ -8,6 +8,8 @@ const instance = axios.create({
 const RSS_ENDPOINT = "telegram/channel/haregakaniti";
 const COUNT_TO_LOAD = 10;
 
+moment.locale('he');
+
 const getRssData = () => {
   instance
     .get(RSS_ENDPOINT)
