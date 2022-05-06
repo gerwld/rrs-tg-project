@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="he" class="iframe">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="./iframe.css">
+ <title>RSS Slider</title>
+ <script type="text/javascript" src="../node_modules/xmlToJSON.min.js"></script>
+ <script type="text/javascript" src="../node_modules/moment-with-locales.min.js"></script>
+ <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body lang="he" dir="rtl" class="iframe">
+ <div class="ctg_rss with_tg" id="ctg_rss" lang="he" dir="rtl">
+  <div class="ctg_rss_content" id="ctg_rss_content">
+  </div>
+  <div class="navigation">
+   <button id="btn_back">back</button>
+   <button id="btn_forw">forw</button>
+  </div>
+  <div class="swipe_block" id="ctg_swipe_block"></div>
+  <div class="load_sc" id="ctg_load">
+   <div class="l"></div>
+   <span class="e"></span>
+  </div>
+ </div>
+ <script async src="../slider.js"></script>
+ <script async src="../api.js"></script>
+</body>
+</html>
