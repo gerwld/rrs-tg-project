@@ -144,25 +144,14 @@ swipeBlock.addEventListener(
     let offset = x - startx;
 
     if (offset >= 0) offsetLeft = 0;
-    else offsetLeft = Math.abs(x - startx);
+    else offsetLeft = Math.abs(offset);
 
-    cards.style.left = `${x - startx}px`;
+    cards.style.left = `${offsetLeft}px`;
   },
   { passive: true }
 );
 
 swipeBlock.addEventListener("touchend", () => {
   isPressedDown = false;
-  setTimeout(alignVisBlockMob, 20);
+  setTimeout(alignVisBlock, 20);
 });
-
-function alignVisBlockMob() {
-  offsetLeft = Math.round(offsetLeft / elemWidth) * elemWidth;
-  if(offsetLeft % elemWidth > 5) {
-    offsetLeft = Math.floor(offsetLeft / elemWidth) * elemWidth + elemWidth;
-  } else if(offsetLeft % elemWidth > (elemWidth - 5)) {
-    offsetLeft = Math.floor(offsetLeft / elemWidth) * elemWidth - elemWidth;
-
-  }
-  cards.style.left = `-${offsetLeft}px`;
-}

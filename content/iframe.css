@@ -50,6 +50,9 @@
   cursor: pointer;
  }
 
+ .ctg_rss blockquote {
+   display: none;
+ }
  .ctg_rss > * {
  -webkit-appearance: none;
  -webkit-border-radius:0px;

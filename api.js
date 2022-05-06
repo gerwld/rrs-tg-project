@@ -30,12 +30,13 @@ const getRssData = () => {
        var links = detectURLs(desc);
 
        const data = {
-        img: links[0],
+        img: links[0].startsWith('https://t.me') ? links[1] : links[0],
         title: e.title[0]._text.slice(0, 80),
         pg: desc.split(`.href);">​​</a>`).pop().split('</p><blockquote>')[0] + "...",
         date: moment(e.pubDate[0]._text).calendar(),
         prodLink: links[1]
        }
+       console.log(data);
        createElemBuilder(data.img, data.title, data.pg, data.date, data.prodLink);
       })
       resizeBlock();
@@ -58,7 +59,7 @@ const createElemBuilder = (img = "--", title ="--", pg ="--", date ="--", link="
  <div class="image">
    <img
      src="${img}"
-     onerror="this.src='./img/fallback-img.jpg'"
+     onerror="this.src='./../img/fallback-img.jpg'; this.style.objectFit='cover'"
      alt=${title}>
  </div>
  <div class="content">
