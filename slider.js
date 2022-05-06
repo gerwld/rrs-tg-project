@@ -9,12 +9,14 @@ const ONE_BL_WIDTH = 550;
 const JUMP_RANGE = 100;
 const IS_AUTOSCROLL = false;
 const AUTOSCROLL_TIMEOUT = 2600;
-const IS_TG_BAR_SHOW = true;
 
 
 let elemWidth;
 let offsetLeft = 0;
 let paddingSize = 10;
+
+const urlP = new URLSearchParams(window.location.search);
+const IS_TG_BAR_SHOW = urlP.get("show_telegram") !== "no";
 
 function resizeBlock() {
   if (container.offsetWidth >= THREE_BL_WIDTH) {

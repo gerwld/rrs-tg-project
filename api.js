@@ -6,9 +6,10 @@ const instance = axios.create({
 });
 
 const RSS_ENDPOINT = "telegram/channel/haregakaniti";
-const COUNT_TO_LOAD = 10;
 
 moment.locale('he');
+const urlParams = new URLSearchParams(window.location.search);
+const COUNT_TO_LOAD = !isNaN(urlParams.get("show_last")) && urlParams.get("show_last") && urlParams.get("show_last") > 0 ? urlParams.get("show_last") : 1000;
 
 const getRssData = () => {
   instance
