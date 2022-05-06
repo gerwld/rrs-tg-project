@@ -7,8 +7,8 @@ const swipeBlock = document.getElementById("ctg_swipe_block");
 const THREE_BL_WIDTH = 800;
 const ONE_BL_WIDTH = 550;
 const JUMP_RANGE = 100;
-const IS_AUTOSCROLL = false;
-const AUTOSCROLL_TIMEOUT = 5000;
+const IS_AUTOSCROLL = true;
+const AUTOSCROLL_TIMEOUT = 2000;
 
 let elemWidth;
 let offsetLeft = 0;
@@ -74,14 +74,9 @@ if (IS_AUTOSCROLL) {
 
   var autoScroll = setInterval(autoScrollTm, AUTOSCROLL_TIMEOUT);
   function autoScrollTm() {
-    const container_rect = container.getBoundingClientRect();
-    const cards_rect = cards.getBoundingClientRect();
-    if (container_rect.right < cards_rect.right - 100) {
-      offsetLeft += elemWidth;
-    } else {
-      offsetLeft = 0;
-    }
+    offsetLeft += elemWidth;
     cards.style.left = `-${offsetLeft}px`;
+    alignVisBlock();
   }
 }
 
@@ -121,7 +116,13 @@ swipeBlock.addEventListener("mousemove", (e) => {
 });
 
 function alignVisBlock() {
-  offsetLeft = Math.round(offsetLeft / elemWidth) * elemWidth;
+  const container_rect = container.getBoundingClientRect();
+  const cards_rect = cards.getBoundingClientRect();
+  if (container_rect.right < cards_rect.right - 50) {
+    offsetLeft = Math.round(offsetLeft / elemWidth) * elemWidth;
+  } else {
+    offsetLeft = 0;
+  }
   cards.style.left = `-${offsetLeft}px`;
 }
 
@@ -145,7 +146,6 @@ swipeBlock.addEventListener(
 
     if (offset >= 0) offsetLeft = 0;
     else offsetLeft = Math.abs(offset);
-
     cards.style.left = `-${offsetLeft}px`;
   },
   { passive: true }
