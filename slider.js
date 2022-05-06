@@ -158,9 +158,9 @@ swipeBlock.addEventListener("touchend", () => {
 
 function alignVisBlockMob() {
   offsetLeft = Math.round(offsetLeft / elemWidth) * elemWidth;
-  if(offsetLeft % elemWidth > 50) {
+  if(offsetLeft % elemWidth > 5) {
     offsetLeft = Math.floor(offsetLeft / elemWidth) * elemWidth + elemWidth;
-  } else if(offsetLeft % elemWidth > (elemWidth - 50)) {
+  } else if(offsetLeft % elemWidth > (elemWidth - 5)) {
     offsetLeft = Math.floor(offsetLeft / elemWidth) * elemWidth - elemWidth;
 
   }
