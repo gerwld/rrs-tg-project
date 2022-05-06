@@ -61,9 +61,15 @@
  
  .props_block label,
  .props_block select {
+   display: -webkit-inline-box;
+   display: -ms-inline-flexbox;
    display: inline-flex;
-   justify-content: flex-start;
-   align-items: center;
+   -webkit-box-pack: start;
+       -ms-flex-pack: start;
+           justify-content: flex-start;
+   -webkit-box-align: center;
+       -ms-flex-align: center;
+           align-items: center;
    margin: 0;
    margin-bottom: 10px;
    padding: 0 10px;
@@ -83,7 +89,6 @@
    -webkit-appearance: none;
    white-space: nowrap;
    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
     box-shadow: none;
  }
  

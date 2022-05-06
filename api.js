@@ -36,7 +36,7 @@ const getRssData = () => {
         date: moment(e.pubDate[0]._text).calendar(),
         prodLink: links[1]
        }
-       console.log(data);
+       
        createElemBuilder(data.img, data.title, data.pg, data.date, data.prodLink);
       })
       resizeBlock();
