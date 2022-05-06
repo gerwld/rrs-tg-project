@@ -7,7 +7,7 @@ const swipeBlock = document.getElementById("ctg_swipe_block");
 const THREE_BL_WIDTH = 800;
 const ONE_BL_WIDTH = 550;
 const JUMP_RANGE = 100;
-const IS_AUTOSCROLL = false;
+const IS_AUTOSCROLL = true;
 const AUTOSCROLL_TIMEOUT = 2600;
 
 
