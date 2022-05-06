@@ -59,13 +59,14 @@
  
  .props_block label,
  .props_block select {
-   display: inline-block;
+   display: inline-flex;
+   justify-content: flex-start;
+   align-items: center;
    margin: 0;
    margin-bottom: 10px;
-   padding: 10px;
+   padding: 0 10px;
    padding-right: 20px;
    height: 40px;
-   line-height: 40px;
    font-family: inherit;
    font-size: 15.5px;
    border-radius: 0;
