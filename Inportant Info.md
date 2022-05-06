@@ -15,7 +15,9 @@ But better save the original .zip with the project, to be sure that nothing will
 
 
 
-
+To change the slider speed set a new value in the AUTOSCROLL_TIMEOUT (file slider.js) in milliseconds.
+If you want to disable elements auto-scroll set IS_AUTOSCROLL (file slider.js) from =true to =false.
+By default autoscroll not work while mouse is on slider, that is part of UX flow to increase usability.
 
 ---
 
