@@ -8,7 +8,7 @@ const THREE_BL_WIDTH = 800;
 const ONE_BL_WIDTH = 550;
 const JUMP_RANGE = 100;
 const IS_AUTOSCROLL = true;
-const AUTOSCROLL_TIMEOUT = 2000;
+const AUTOSCROLL_TIMEOUT = 5000;
 
 let elemWidth;
 let offsetLeft = 0;
@@ -126,7 +126,7 @@ function alignVisBlock() {
   cards.style.left = `-${offsetLeft}px`;
 }
 
-// Mobile scroll
+// **** Mobile scroll **** //
 
 swipeBlock.addEventListener(
   "touchstart",
