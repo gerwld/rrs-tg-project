@@ -22,7 +22,7 @@ html {
  position: relative;
  width: 1230px;
  max-width: 100%;
- min-height: 490px;
+ min-height: 480px;
  overflow: hidden;
  border: 1px solid rgb(238, 238, 238);
  margin: 0 auto;
@@ -66,11 +66,12 @@ html {
 }
 
 .ctg_rss .datetime {
-display: block;
- font-size: 14px;
- margin-top: 20px;
- color: rgb(71, 71, 71);
- user-select: none;
+  display: block;
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+ font-size: 15px;
+ color: rgb(46, 46, 46);
 }
 
 .swipe_block {
@@ -125,6 +126,16 @@ display: block;
  cursor: pointer;
 }
 
+.slide_block .content h3 a {
+  color: var(--rss-tg-prim-color);
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.slide_block .content h3 a:hover {
+  background-color: rgb(224, 224, 224);
+}
+
 .slide_block .content p {
   max-height: 54px;
   overflow: hidden;
@@ -145,11 +156,12 @@ display: block;
  }
 
 .slide_block .content {
-  padding: 6px 12px 12px 18px;
-  min-height: 180px;
-  max-height: 180px;
+  padding: 6px 12px 37px 18px;
+  min-height: 170px;
+  max-height: 170px;
   box-sizing: border-box;
   cursor: default;
+  position: relative;
 }
 
 .ctg_rss .navigation button {

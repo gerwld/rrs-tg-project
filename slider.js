@@ -57,7 +57,6 @@ btnForw.addEventListener("click", () => {
   if (cards_rect.right - 50 > container_rect.right) {
     offsetLeft += elemWidth;
   } else offsetLeft = 0;
-  
   cards.style.left = `-${offsetLeft}px`;
 });
 
@@ -81,6 +80,7 @@ if(IS_AUTOSCROLL) {
     cards.style.left = `-${offsetLeft}px`;
   }
 }
+
 // **** Swipe block logic **** //
 
 let isPressedDown = false;
@@ -106,16 +106,19 @@ swipeBlock.addEventListener("mousemove", (e) => {
   if (!isPressedDown) return;
   e.preventDefault();
 
-  let newValue = e.offsetX - cursorXSpace;
-  if (newValue < JUMP_RANGE && newValue > (cards_rect.width - container_rect.width + JUMP_RANGE) * -1) {
-    offsetLeft = newValue;
+  let newValue =  e.offsetX - cursorXSpace;
+  if (newValue < JUMP_RANGE && newValue > (cards_rect.width - container_rect.width + JUMP_RANGE) * -1 ) {
+    offsetLeft =  Math.abs(newValue);
+    if(newValue >= 0) {
     cards.style.left = `${offsetLeft}px`;
+    } else cards.style.left = `-${offsetLeft}px`;
+
   }
   setTimeout(alignVisBlock, 200);
 });
 
 function alignVisBlock() {
   offsetLeft = Math.round(offsetLeft / elemWidth) * elemWidth;
-  cards.style.left = `${offsetLeft}px`;
+  cards.style.left = `-${offsetLeft}px`;
 }
 
