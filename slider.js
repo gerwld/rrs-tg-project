@@ -72,6 +72,13 @@ if (IS_AUTOSCROLL) {
     autoScroll = setInterval(autoScrollTm, AUTOSCROLL_TIMEOUT);
   });
 
+  container.addEventListener("touchstart", () => {
+    clearInterval(autoScroll);
+  });
+  container.addEventListener("touchend", () => {
+    autoScroll = setInterval(autoScrollTm, AUTOSCROLL_TIMEOUT);
+  });
+
   var autoScroll = setInterval(autoScrollTm, AUTOSCROLL_TIMEOUT);
   function autoScrollTm() {
     offsetLeft += elemWidth;
