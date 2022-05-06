@@ -56,6 +56,7 @@
    border: 1px solid #b1b1b1;
    border-radius: 0!important;
    -webkit-appearance: none;
+   text-align: right;
  }
  
  .props_block label,
@@ -87,7 +88,7 @@
  }
  
  .props_block label {
-   margin-right: 10px;
+   margin-left: 10px;
    -webkit-user-select: none;
       -moz-user-select: none;
        -ms-user-select: none;
@@ -123,7 +124,7 @@
 
 label.container {
   position: relative;
-  padding-left: 28px;
+  padding-left: 28px!important;
 }
 
 .container input {
