@@ -12,6 +12,12 @@
   --rss-tg-main-color: #425191;
   --rss-tg-main-bg: rgb(244, 246, 250);
  }
+
+ * {
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+}
  
  body, 
  html {
@@ -19,6 +25,9 @@
   padding: 0;
   margin: 20px;
   background-color: var(--rss-tg-main-bg);
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
  }
  
  h1 {
