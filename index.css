@@ -185,7 +185,11 @@ label.container {
  @media only screen and (max-width: 500px) {
    body,
    html {
-     margin: 20px 0 0;
+     margin: 0;
+   }
+
+   body {
+     magin: 5px 0 0;
    }
  
    .props_block {
