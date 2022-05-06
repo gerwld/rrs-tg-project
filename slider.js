@@ -153,5 +153,5 @@ swipeBlock.addEventListener(
 
 swipeBlock.addEventListener("touchend", () => {
   isPressedDown = false;
-  setTimeout(alignVisBlock, 200);
+  setTimeout(alignVisBlock, 20);
 });
