@@ -57,6 +57,7 @@
    height: 40px;
    font-family: inherit;
    font-size: 15.5px;
+   border-radius: 0;
    border: var(--rss-tg-border-main);
    -webkit-box-sizing: border-box;
            box-sizing: border-box;
