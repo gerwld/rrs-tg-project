@@ -436,3 +436,9 @@
      transform: rotate(360deg);
    }
  }
+
+ @media only screen and (max-width: 400px) {
+  .tg_cregentials a {
+    font-size: 19px;
+  }
+ }
