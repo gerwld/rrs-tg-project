@@ -139,14 +139,16 @@ swipeBlock.addEventListener(
 swipeBlock.addEventListener(
   "touchmove",
   (e) => {
+    const container_rect = container.getBoundingClientRect();
+    const cards_rect = cards.getBoundingClientRect();
     if (!isPressedDown) return;
     x = e.targetTouches[0].clientX;
     let offset = x - startx;
-
-    if (offset >= 0) offsetLeft = 0;
-    else offsetLeft = Math.abs(offset);
-
-    cards.style.left = `${offsetLeft}px`;
+    if(container_rect.right < cards_rect.right - 50) {
+      if (offset >= 0) offsetLeft = 0;
+      else offsetLeft = Math.abs(offset);
+      cards.style.left = `${offsetLeft}px`;
+    }
   },
   { passive: true }
 );
