@@ -153,5 +153,16 @@ swipeBlock.addEventListener(
 
 swipeBlock.addEventListener("touchend", () => {
   isPressedDown = false;
-  setTimeout(alignVisBlock, 20);
+  setTimeout(alignVisBlockMob, 20);
 });
+
+function alignVisBlockMob() {
+  offsetLeft = Math.round(offsetLeft / elemWidth) * elemWidth;
+  if(offsetLeft % elemWidth > 50) {
+    offsetLeft = Math.floor(offsetLeft / elemWidth) * elemWidth + elemWidth;
+  } else if(offsetLeft % elemWidth > (elemWidth - 50)) {
+    offsetLeft = Math.floor(offsetLeft / elemWidth) * elemWidth - elemWidth;
+
+  }
+  cards.style.left = `-${offsetLeft}px`;
+}
