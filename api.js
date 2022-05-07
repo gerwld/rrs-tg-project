@@ -26,7 +26,7 @@ const getRssData = async () => {
       createHdBuilder(tgData.img, tgData.title, tgData.link);
       return data.rss[0].channel[0].item;
     }).then(res => {
-      res.reverse().slice(0, COUNT_TO_LOAD).map(e => {
+      res.slice(0, COUNT_TO_LOAD).reverse().map(e => {
        const desc = e.description[0]._text;
        var links = detectURLs(desc);
 
