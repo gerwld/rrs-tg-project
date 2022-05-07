@@ -7,7 +7,7 @@ const swipeBlock = document.getElementById("ctg_swipe_block");
 const THREE_BL_WIDTH = 800;
 const ONE_BL_WIDTH = 550;
 const JUMP_RANGE = 100;
-const IS_AUTOSCROLL = true;
+const IS_AUTOSCROLL = false;
 const AUTOSCROLL_TIMEOUT = 5000;
 
 let elemWidth;
@@ -162,3 +162,23 @@ swipeBlock.addEventListener("touchend", () => {
   isPressedDown = false;
   setTimeout(alignVisBlock, 20);
 });
+
+// Toggle Content visibility
+
+const addVisibilityToggle = () => {
+  var slideBlockContentAll = document.querySelectorAll(".slide_block_content");
+  slideBlockContentAll.forEach((e) => {
+    let btn = e.querySelector(".expand");
+    let content = e.querySelector(".content_wrapper");
+    let desc = e.querySelector(".desc").getBoundingClientRect().height;
+    if (desc > 55) {
+      e.addEventListener("click", (e) => {
+        if (e.target === btn) {
+          content.classList.toggle("opened");
+          btn.classList.toggle("opened");
+        }
+        return;
+      });
+    } else btn.style.display = "none";
+  });
+};

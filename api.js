@@ -11,8 +11,8 @@ moment.locale('he');
 const urlParams = new URLSearchParams(window.location.search);
 const COUNT_TO_LOAD = !isNaN(urlParams.get("show_last")) && urlParams.get("show_last") && urlParams.get("show_last") > 0 ? urlParams.get("show_last") : 1000;
 
-const getRssData = () => {
-  instance
+const getRssData = async () => {
+ await instance
     .get(RSS_ENDPOINT)
     .then((r) => {
       const data = xmlToJSON.parseString(r.data);
@@ -32,11 +32,10 @@ const getRssData = () => {
        const data = {
         img: links[0].startsWith('https://t.me') ? links[1] : links[0],
         title: e.title[0]._text.slice(0, 80),
-        pg: desc.split(`.href);">​​</a>`).pop().split('</p><blockquote>')[0] + "...",
+        pg: desc.split(`.href);">​​</a>`).pop().split('</p><blockquote>')[0],
         date: moment(e.pubDate[0]._text).calendar(),
         prodLink: links[1]
        }
-       
        createElemBuilder(data.img, data.title, data.pg, data.date, data.prodLink);
       })
       resizeBlock();
@@ -47,6 +46,7 @@ const getRssData = () => {
      loader.classList.add('error');
      loader.querySelector('span').innerHTML = error.message;
      });
+    addVisibilityToggle();
 };
 getRssData();
 
@@ -63,8 +63,11 @@ const createElemBuilder = (img = "--", title ="--", pg ="--", date ="--", link="
      alt=${title}>
  </div>
  <div class="content">
+  <div class="content_wrapper">
    <h3><a target="_blank" href=${link}>${title}</a></h3>
-   <p>${pg}</p>
+   <p class="desc">${pg}</p>
+  </div>
+   <button class="expand">>>></button>
    <span class="datetime" lang="he" dir="rtl">${date}</span>
  </div>
  </div>
