@@ -3,6 +3,7 @@ const content = document.getElementById('ctg_rss_content');
 const ctg_rss = document.getElementById('ctg_rss');
 const instance = axios.create({
   baseURL: "https://ctg-cors.herokuapp.com/https://rsshub.app/",
+  'Pragma': 'no-cache',
 });
 
 const RSS_ENDPOINT = "telegram/channel/haregakaniti";
@@ -13,7 +14,7 @@ const COUNT_TO_LOAD = !isNaN(urlParams.get("show_last")) && urlParams.get("show_
 
 const getRssData = async () => {
  await instance
-    .get(RSS_ENDPOINT)
+    .get(RSS_ENDPOINT + `?${Math.random() * 1000}`)
     .then((r) => {
       const data = xmlToJSON.parseString(r.data);
       const tgData = {

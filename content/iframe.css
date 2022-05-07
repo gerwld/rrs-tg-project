@@ -168,7 +168,8 @@
  
  .slide_block .image img {
    width: 110%;
- height: 400px;
+   max-height: 400px;
+   min-height: 300px;
    -o-object-fit: contain;
       object-fit: contain;
    -webkit-user-drag: none;
