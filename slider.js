@@ -110,7 +110,7 @@ swipeBlock.addEventListener("mousemove", (e) => {
   const container_rect = container.getBoundingClientRect();
   const cards_rect = cards.getBoundingClientRect();
   if (!isPressedDown) return;
-  e.preventDefault();
+  // e.preventDefault();
 
   let newValue = e.offsetX - cursorXSpace;
   if (newValue < JUMP_RANGE && newValue > (cards_rect.width - container_rect.width + JUMP_RANGE) * -1) {
