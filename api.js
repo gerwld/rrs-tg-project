@@ -2,19 +2,19 @@ const loader = document.getElementById('ctg_load');
 const content = document.getElementById('ctg_rss_content');
 const ctg_rss = document.getElementById('ctg_rss');
 const instance = axios.create({
-  baseURL: "https://ctg-cors.herokuapp.com/https://rsshub.app/",
   'Pragma': 'no-cache',
 });
 
-const RSS_ENDPOINT = "telegram/channel/haregakaniti";
+const RSS_ENDPOINT = "https://ctgg-cors.herokuapp.com/https://rsshub.app/telegram/channel/haregakaniti";
+const RSS_ENDPOINT_2 = "https://ctg-cors.herokuapp.com/https://rsshub.app/telegram/channel/haregakaniti";
 
 moment.locale('he');
 const urlParams = new URLSearchParams(window.location.search);
 const COUNT_TO_LOAD = !isNaN(urlParams.get("show_last")) && urlParams.get("show_last") && urlParams.get("show_last") > 0 ? urlParams.get("show_last") : 1000;
 
-const getRssData = async () => {
+const getRssData = async (rss_endpoint = RSS_ENDPOINT) => {
  await instance
-    .get(RSS_ENDPOINT + `?${Math.random() * 1000}`)
+    .get(rss_endpoint + `?${Math.random() * 1000}`)
     .then((r) => {
       const data = xmlToJSON.parseString(r.data);
       const tgData = {
@@ -44,8 +44,11 @@ const getRssData = async () => {
       
     })
     .catch((error) =>{
-     loader.classList.add('error');
-     loader.querySelector('span').innerHTML = error.message;
+      if(rss_endpoint === RSS_ENDPOINT_2) {
+        loader.classList.add('error');
+        loader.querySelector('span').innerHTML = error.message;
+      }
+      getRssData(RSS_ENDPOINT_2);
      });
     addVisibilityToggle();
 };
