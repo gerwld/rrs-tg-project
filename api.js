@@ -5,8 +5,8 @@ const instance = axios.create({
   'Pragma': 'no-cache',
 });
 
-const RSS_ENDPOINT = "https://ctgg-cors.herokuapp.com/https://rsshub.app/telegram/channel/haregakaniti";
-const RSS_ENDPOINT_2 = "https://ctg-cors.herokuapp.com/https://rsshub.app/telegram/channel/haregakaniti";
+const RSS_ENDPOINT = "https://ctg-cors.herokuapp.com/https://rsshub.app/telegram/channel/haregakaniti";
+const RSS_ENDPOINT_2 = "https://ctgg-cors.herokuapp.com/https://rsshub.app/telegram/channel/haregakaniti";
 
 moment.locale('he');
 const urlParams = new URLSearchParams(window.location.search);
