@@ -33,7 +33,7 @@ const getRssData = async (rss_endpoint = RSS_ENDPOINT) => {
        const data = {
         img: links[0].startsWith('https://t.me') ? links[1] : links[0],
         title: e.title[0]._text.slice(0, 80),
-        pg: desc.split(`.href);">​​</a>`).pop().split('</p><blockquote>')[0],
+        pg: '<span class="content">' + desc.split(`.href);">​​</a>`).pop().split('</p><blockquote>')[0] + '</span>',
         date: moment(e.pubDate[0]._text).calendar(),
         prodLink: links[1]
        }
