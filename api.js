@@ -47,8 +47,9 @@ const getRssData = async (rss_endpoint = RSS_ENDPOINT) => {
       if(rss_endpoint === RSS_ENDPOINT_2) {
         loader.classList.add('error');
         loader.querySelector('span').innerHTML = error.message;
+      } else {
+        getRssData(RSS_ENDPOINT_2);
       }
-      getRssData(RSS_ENDPOINT_2);
      });
     addVisibilityToggle();
 };
