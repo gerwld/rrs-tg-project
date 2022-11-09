@@ -3,7 +3,7 @@ For change something, simply edit constants in .js & .css files.
 
 Example of constant in JS file:
 const EXAMPLE = "value" / number;
-
+ 
 In .css styles, you can also make changes in constants. There are 2 CSS files,
 The first (index.css) is basic UI styles, and the second one (content/iframe.css) is for slider styles.
 Example of CSS constant (usually in the beginning of the file):
